@@ -1,0 +1,61 @@
+{% extends "career/base.html" %}
+{% block content %}
+    <article>
+	{% load static %} 
+        <section>
+			<div class="block">
+				{% if studyarea_list and holland_type_list%}
+					<h2>Quiz Result</h2>
+					<br/>
+					<div>
+						<table style="width:100%">
+							<tr>
+								<td style="padding:10px; width:50%">
+									<p><b>Your Holland personality type is: </b><h4>{{holland_type_list}}</h4></p>
+									
+									<!-- image -->
+									<div style="text-align:right">
+										{%ifequal holland_type_list.name "Realistic"%}
+										<div> <img alt="no image found" src="{% static "realistic.png" %}" alt="Realistic" height="300" width="350"/></div>
+										{%endifequal%}
+										{%ifequal holland_type_list.name "Conventional"%}
+										<div> <img alt="no image found" src="{% static "conventional.png" %}" alt="Conventional" height="300" width="350"/></div>
+										{%endifequal%}
+										{%ifequal holland_type_list.name "Enterprising"%}
+										<div> <img alt="no image found" src="{% static "enterprising.png" %}" alt="Enterprising" height="300" width="350"/></div>
+										{%endifequal%}
+										{%ifequal holland_type_list.name "Artistic"%}
+										<div> <img alt="no image found" src="{% static "artistic.png" %}" alt="Artistic" height="300" width="350"/></div>
+										{%endifequal%}
+										{%ifequal holland_type_list.name "Social"%}
+										<div> <img alt="no image found" src="{% static "social.png" %}" alt="Social" height="300" width="350"/></div>
+										{%endifequal%}
+										{%ifequal holland_type_list.name "Investigative"%}
+										<div> <img alt="no image found" src="{% static "investigative.png" %}" alt="Investigative" height="300" width="350"/></div
+										{%endifequal%}
+									</div>
+								</td>
+							
+								<td style="padding:10px">
+									
+									<p><b>About your Holland type</b></p>	
+									<p>{{holland_type_list.description}}</p>
+								</td>								
+							</tr>
+						</table>
+					</div>
+					<br/>
+					<div class="jumbotron">
+						<p>The study area that you are best suited to pursue a career in is</p>
+						<h2><b>{{studyarea_list}}</b></h2>
+						<br/>					
+						<p><small>{{studyarea_list.description}}</small></p>	
+					</div>
+				{% endif %}
+			</div>
+        </section>
+        <br />      
+    </article>
+{% endblock %}
+
+

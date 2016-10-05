@@ -1,0 +1,51 @@
+{% extends "career/base.html" %}
+{% block content %} 
+<article>
+	<section>
+		<div class="block">
+			<h2>Log In</h2><span style="float:right; padding-right:30px">
+				<p><a href="/admin/" class="btn btn-primary">Admin login</a></p>
+			</span>
+			<br/>
+			<p> Enter your information below to log in to your account. </p>
+			<br/>
+			<div style="width:50%; margin: 0 auto">
+				<div class="well bs-component" >
+					<form class="form-horizontal" id="login_form" method="post" action="/career/login/">
+					{% csrf_token %}
+						<fieldset>
+							<div class="form-group">
+								<div class="col-lg-10">
+									<label for="inputEmail">Username</label>
+									<input class="form-control" id="inputEmail" name="username" placeholder="Username" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10">
+									<label for="inputPassword" >Password</label>
+									<input class="form-control" id="inputPassword" name="password" placeholder="Password" type="password">
+								</div>
+							</div>
+							
+							<a><small>Forgot your password?</small></a>
+							<br/>
+							<div style="text-align:center">
+								<div class="form-group" >
+									<div align:center>					
+										<button type="submit" class="btn btn-primary">Log in</button>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		
+			
+		</div>
+</section>
+{% endblock %}
+
+
+
+

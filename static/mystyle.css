@@ -1,0 +1,257 @@
+p, h3, h4, a, div.input_label, dl, .tips {
+    font-family: Georgia;
+}
+
+h2 {
+    font-family: Georgia;
+    text-align: center;
+}
+
+em {
+    color: #ce1300;
+}
+
+#tab {
+    width: 100%;
+}
+
+header {
+    background-color: #5149be;
+}
+
+div.title_bar {
+    border: double;
+    border-bottom: none;
+    border-color: #FCBA3C;
+}
+
+#subheader {
+    border: double;
+    border-color: #c12d21;
+}
+
+table.facts {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 15px;
+    height: 600px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 15px;
+    text-align: center;
+}
+
+td.facts1 {
+    width: 25%;
+    height: 25%;
+    padding: 5px;
+    border: dotted;
+    border-color: #691bc1;
+    border-width: medium;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+td.facts2 {
+    width: 25%;
+    height: 25%;
+    padding: 5px;
+    border: solid;
+    border-color: #ce1300;
+    border-width: 2px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+a:link {
+    color: #691bc1;
+}
+
+a:visited {
+    color: #691bc1;
+}
+
+a:hover {
+    color: #691bc1;
+}
+
+#links_menu {
+    background-color: #8b87d9;
+    border-color: #FCBA3C;
+}
+
+#menu {
+    margin: 0px;
+}
+
+    #menu li {
+        font-size: 20px;
+        display: inline;
+        list-style-type: none;
+        padding-right: 25px;
+    }
+
+    #menu a {
+        text-decoration: none;
+        color: white;
+    }
+
+        #menu a:hover {
+            color: #691bc1;
+            text-decoration: none;
+        }
+
+
+
+#welcome {
+    border: dashed;
+}
+
+.text_box {
+    border: dashed;
+    border-width: thin;
+    padding: 20px;
+    text-align: center;
+}
+
+#products_menu {
+    padding: 25px;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-color: #691bc1;
+}
+
+h3.browse {
+    font-style: italic;
+}
+
+#browse_lists, #contact, #send_message {
+    vertical-align: top;
+}
+
+    #browse_lists li {
+        list-style-type: none;
+    }
+
+    #browse_lists a {
+        text-decoration: none;
+        color: black;
+    }
+
+        #browse_lists a:hover {
+            color: #691bc1;
+        }
+
+
+
+#products {
+    padding-left: 50px;
+    border-collapse: separate;
+    border-spacing: 25px;
+    width: 75%;
+}
+
+p.price {
+    font-family: Arial;
+    font-size: 14px;
+    color: #ce1300;
+}
+
+p.product_name {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.product {
+    word-wrap: hyphenate;
+}
+
+#footer {
+    padding: 0px;
+    background-color: #8b87d9;
+    border: double;
+    border-color: #ce1300;
+    text-align: center;
+}
+
+#footer p {
+        font-family: Arial;
+        font-size: 12px;
+    }
+
+#footer_links li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 25px;
+}
+
+#footer_links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial;
+    color: #fff;
+}
+
+#search_bar {
+    width: 40%;
+    padding-right: 10px;
+    font-family: Georgia;
+}
+
+div.tips {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: justify;
+}
+
+a.yellow_links {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial;
+    color: #FCBA3C;
+}
+
+#yellow {
+    font-size: 16px;
+    font-family: Arial;
+    padding-right: 10px;
+    float: right;
+    color: #FCBA3C;
+    margin-top: 10px;
+}
+
+#about {
+    padding-left: 50px;
+}
+
+.input_label {
+    text-align: left;
+}
+
+div.centered {
+    display: table;
+    margin: 0 auto;
+}
+
+/*.centered {
+    align-content:center;
+}*/
+
+.video {
+    display: table;
+    margin: 0 auto;
+}
+
+#wishlist {
+    width: 350px;
+    font-family: Georgia;
+}
+
+.top {
+    vertical-align: top;
+}
+
+.clear_table {
+    border: hidden; width: 100%
+}

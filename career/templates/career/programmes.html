@@ -1,0 +1,68 @@
+{% extends "career/base.html" %}
+{% block content %} 
+        <article>
+        <section>
+			{% load static %}
+				<link rel="stylesheet" href={% static 'jquery-ui.css' %}>
+				<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+				<script src={% static 'jquery-ui.js' %}></script>				
+				<script>
+					 $(function() {
+						$( "div.accordion" ).accordion({
+					heightStyle: "content"
+					});
+				});			
+				</script>
+			
+			<div class="block">
+				<h2>Courses</h2>
+				<p>Click on a study area and choose a course</p>
+				{% if studyAreaList and programmeList%}
+				<div class="accordion" id="accordion1">
+					{% for i in studyAreaList %}						
+						<h3>{{ i.title }}</h3>
+						<div id="accordion2" class="accordion" style="width:100%">				
+							<!--List all the offered courses for that study area-->
+							{% for j in programmeList %}	
+								{% ifequal j.studyAreaOffered.title i.title %}
+									<p>{{ j.institutionOffered }} - {{j}} </p>
+									<div>
+										<table style="width:100%">
+										<tr>
+											<td>
+												<p>{{j.description}}</p>
+												<h4><b>Minimum requirements</b></h4> <p>{{j.minimumRequirements}}</p>												
+												<h4><b>Application deadline</b></h4> 
+												<form method="post">
+											{%csrf_token%}
+												<table>
+												<td>
+													<p>{{j.applicationDeadline}}</p>
+												</td>
+												<td style="padding-left:40px; vertical-align: middle"> {%if user.is_authenticated%}
+													<button class="btn btn-primary btn-xs" name="date" value="{{j.applicationDeadline}} _ {{ j.institutionOffered }} - {{j}}"> remind me </button>
+													{%endif%}
+												</td>
+												</table>
+												</form>
+												<br/>
+												<h4><a style="color:#6AA84F" href={{j.weblink}} target="_blank">Click here for more information</a></h4>
+											</td>
+											<td style="text-align:right; padding:10px; vertical-align:top">
+												<div><img alt="no image found" src={{j.institutionOffered.picture}} height="175"/></div> 	
+											</td>
+										</tr>										
+										</table>
+										<!--programme specific info -->																													
+									</div>
+								{%endifequal%}	
+							{% endfor %}
+						</div>						
+					{% endfor %}
+					</div>			
+				{% endif %}
+			</div>
+		</section>
+		<br />
+	</article>
+{% endblock %}

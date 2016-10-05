@@ -1,0 +1,50 @@
+{% extends "career/base.html" %}
+{% block content %}
+
+<article>
+		<section>
+			<div class="block">
+			<h2>Our quiz: Part 2</h2>
+			<p>Please answer as honestly as possible to get an accurate assessment. <br>
+				Choose the option that BEST fits you.</p>
+				<br />
+
+	<div>
+		<form method="post" >
+			{% csrf_token %}
+		
+			{% if latest_question_list %}
+		
+			
+				<ol>
+					{% for questionparttwo in latest_question_list %}
+									
+					<li>{{ questionparttwo }}</li>
+				{% for choiceparttwo in questionparttwo.choiceparttwo_set.all %}
+						<input type="radio" name="{{ questionparttwo.harmonTypeText }}" id="choicepart2{{ forloop.counter }}" value="{{ choiceparttwo.studyA }}" />
+							<label for="choiceparttwo{{ forloop.counter }}">{{ choiceparttwo.choice_text }}</label><br />
+					{% endfor %}
+				
+				{%endfor%}
+				
+				
+				</ol>
+			
+			{% else %}
+					<p>No question are available.</p>
+			{% endif %}
+			<br/>
+		<input class="btn  btn-success btn-sm" type="submit"  value="Get Results" name='getresult' />			
+		</form>
+
+	</div>
+
+
+	   
+</div>
+</section>
+	</article>
+
+
+{% endblock %}
+

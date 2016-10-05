@@ -1,0 +1,96 @@
+{% extends "career/base.html" %}
+{% block content %}
+<article>
+	<section>
+		{% load static %}
+		<link rel="stylesheet" href={% static 'jquery-ui.css' %}>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src={% static 'jquery-ui.js' %}></script>	
+		<script>
+			$(function() {
+				$( "#accordion" ).accordion();
+				heightStyle: "content"
+			});
+		</script>
+
+		<div class="block">
+			<h2>Frequently Asked Questions</h2>
+			<br/>
+			<div id="accordion">					
+				<h3>Where can I find information about tertiary insitutions?</h3>
+				<div>
+					<p>
+					We have a whole page dedicated to providing you with information about where to study in the Western Cape. Just click the Institutions button
+					on the navigation bar or click <a style="color:#6AA84F" href="{% url 'career:institutions' %}">here</a>.
+					</p>
+				</div>
+				<h3>I have no idea what I want to study! Help?</h3>
+				<div>
+					<p>Don't worry! That's what we're here for. We have a designed an easy quiz that shouldn't take you more than 10 minutes to complete.
+					It's for the sole purpose of helping you find a field of study best suited to you based on the interests and personality traits picked 
+					up from your answers. 
+					</p>
+					<p>
+					Take the quiz and start the journey of finding your future by clicking <a style="color:#6AA84F" href="{% url 'careerquiz:quiz' %}">here</a>! 
+					</p>
+				</div>
+				<h3>The course I'm interested in doesn't show the application deadline. What do I do?</h3>
+				<div>
+					<p>The best solution would be to call the institution's applications center and ask them, otherwise you can chat to an advisor on our website
+					and they would be happy to inquire on your behalf. If it is the beginning of the year, it may be too early for them to have defined the deadline
+					yet, so waiting may also be an option.
+					</p>
+				</div>
+				
+				<h3>What are the NBTs?</h3>
+				<div>
+					<p>The NBTs are the National Benchmark Tests. They assess your ability to combine aspects of prior learning in competency areas - 
+					Academic Literacy (AL), Quantitative Literacy (QL) and Mathematics (MAT) - 
+					that directly impact on success of first year university students. AL and QL are combined in the AQL test and written in 
+					a three hour morning session; the MAT is written in a three hour afternoon session. Both are administered under 
+					standardized testing conditions at sites across South Africa on designated ‘national’ test dates.	
+					</p>
+					<p>For more information, visit the <a style="color:#6AA84F" target="_blank" href="http://www.nbt.ac.za/">NBT website</a>.</p>
+				</div>				
+				<h3>Why am I not getting a response in the CSA chat?</h3>
+				<div>
+					<p>Our advisors work every day of the week from 10am to 4pm so if you've sent a message outside these hours they will get back to you 
+					as soon as they can.
+					</p>
+				</div>
+				<h3>What are the Holland Types?</h3>
+				<div>
+					<p>According to John Holland's theory, most people are one of six personality types: Realistic, Investigative, Artistic, 
+					Social, Enterprising, and Conventional. These are commonly used to determine which area of work people are most suited to do.					
+					</p>
+					<p>In summary these are their most prominent traits. For more information, see <a target="_blank" style="color:#6AA84F" href="http://www.careerkey.org/choose-a-career/holland-personality-types.html#.VB6CQjeSy_8">here</a>.<br/>
+					<ul>
+					<li>Realistic - practical, mechanical, and realistic.</li>
+					<li>Investigative -  precise, scientific, and intellectual.</li>
+					<li>Artistic - expressive, original, and independent.</li>
+					<li>Social - helpful, friendly, and trustworthy.</li>
+					<li>Enterprising - energetic, ambitious, and sociable.</li>
+					<li>Conventional - orderly and good at following a set plan.</li>
+					</ul>					
+					</p>					
+					<p>Our quiz will help you determine your Holland Type (if you don't know it already) and subsequently inform you which study areas 
+					you'd be likely to thrive in.</p>
+				</div>
+				
+				<h3>What are the benefits of creating a CSA account?</h3>
+				<div>
+					<p>Having an account with us will allow you to chat with our team of very informed career and study advisors. It also adds the feature of
+					being able to add reminders of important dates (i.e. application deadlines) onto your profile to make sure you
+					know what's due at all times.</p>
+					<p>All you need to register with CSA is an email address and then you're good to go. Simply click
+					 <a style="color:#6AA84F" href="{% url 'career:register' %}">here</a> to get started.</p>
+				</div>
+				
+								
+				
+			</div>
+		</div>
+		<br />
+	</section>
+</article>
+{% endblock %}

@@ -1,0 +1,144 @@
+ <!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">   
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>Career Study Advisor</title>        
+		<link href="{% static 'bootstrap.css' %}" rel="stylesheet" type="text/css" media="screen" />
+        <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen" />
+		<script src="{% static "ajaxfunction.js" %}"></script>
+	</head>
+	<body>
+		<header>
+			<section id="subheader">
+				<div style="background-image: url('{% static "headerbg.jpg" %}')">
+                    <table>
+                        <tr>
+                            <td style=" padding-left:30px; padding-top:10px; padding-bottom:5px"><a href="/career/"><img src="{% static "logo.png" %}"/> </a>
+                            </td>
+                            <td style="float:left; padding-top:30px; padding-left:10px">
+                                <img alt="no image found" src="{% static "slogan.png" %}"/>
+                            </td>
+                            <td style="width:100%; vertical-align:bottom; padding-bottom: 5px; padding-right:5px">
+								<div id="sidebar" align="right">
+								 {% block sidebar %}
+									{% if user.is_authenticated %}
+								Hi,  <a href="{% url 'career:profile' %}">{{ user.first_name }} {{ user.last_name }} </a>
+								<br/>
+								<span><a href="{% url 'career:profile' %}" class="btn btn-info btn-sm">View Profile</a></span>
+								<span><a href="{% url 'career:logout' %}" class="btn btn-info btn-sm">Log out</a></span>
+								{% else %}
+									<span><a href="{% url 'career:login' %}" class="btn btn-info btn-sm">Log in</a></span>
+									<span><a href="{% url 'career:register' %}" class="btn btn-info btn-sm">Register</a></span>
+								{% endif %}
+								{% endblock %}
+								</div>	                                 
+                            </td>
+                        </tr>
+                    </table>
+                </div>         
+            </section>
+			<section id="links_menu">
+				<div class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-inverse-collapse">
+
+                       <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/career/" class="menu">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'career:studyareas' %}"  class="menu">Study Areas</b></a>
+                                
+                            </li>
+                             <li>
+                                <a href="{% url 'career:institutions' %}" class="menu"><span>Institutions</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'career:programmes' %}" class="menu"><span>Courses</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'career:faq' %}" class="menu"><span>FAQ</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'career:about' %}" class="menu"><span>About</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'career:contact' %}" class="menu"><span>Contact Us</span></a>
+                            </li>
+
+                        </ul>
+							
+						<form action="{% url 'career:searchresult' %}" class="navbar-form navbar-right" method="POST">
+							{% csrf_token %}
+							<table>
+								<tr>
+									<td>
+										<input class="form-control col-lg-8" placeholder="Search for a programme" name="searchvalue" type="text">
+									</td>
+									<td style="padding-left:10px">
+										<input class="btn  btn-warning btn-sm" style="padding-left:10px"type="submit" value="search"></input>
+									</td>
+								</tr>    			
+							</table>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+		<div id="content">
+			{% block content %}{% endblock %}
+
+			</div>
+		</div>
+		<br />
+        <footer id="footer" style="text-align:center">
+            <div class="navbar navbar-default">
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{% url 'careerquiz:quiz' %}" class="menu"><span>Quiz</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:studyareas' %}" class="menu"><span>Study Areas</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:institutions' %}" class="menu"><span>Institutions</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:programmes' %}" class="menu"><span>Courses</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:faq' %}" class="menu"><span>FAQ</span></a>
+                        </li>
+                         <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:about' %}" class="menu"><span>About</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:contact' %}" class="menu"><span>Contact Us</span></a>
+                        </li>
+                        <li><a class="menu">|</a></li>
+                        <li>
+                            <a href="{% url 'career:sitemap' %}" class="menu"><span>Sitemap</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p><small>© Copyright 2010 - 2014 CSA</small></p>
+        </footer>
+    </body>
+</html>

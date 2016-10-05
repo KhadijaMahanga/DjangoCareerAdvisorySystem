@@ -1,0 +1,25 @@
+{% extends "career/base.html" %}
+{% block content %}
+
+<article>
+	<div class="block">
+		<h2>Register with Career Study Advisor</h2>
+		<br/>
+        {% if registered %}
+			<p><strong>Thank you for registering!</strong></p>
+            <a href="/career/">Return to the homepage.</a><br />
+        {% else %}
+			<div class="well bs-component" style="width:80%; margin: 0 auto">
+			<form method="post" action="{% url 'career:register'%}"
+						enctype="multipart/form-data" class="form-horizontal">
+				{% csrf_token %}
+				{{ user_form.as_p }}
+				{{ student_form.as_p }}
+				<input type="submit" name="submit" value="Register" class="btn btn-primary" />
+			 </form>	
+         </div>
+		{% endif %}
+	</div>
+</article>
+
+{% endblock %}

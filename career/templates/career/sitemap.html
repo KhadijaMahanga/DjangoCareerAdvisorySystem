@@ -1,0 +1,60 @@
+{% extends "career/base.html" %}
+{% block content %}
+<article>
+	<section>
+		{% load static %}
+	
+		<div class="block">
+			<h2>Sitemap</h2>
+			<br/>
+		
+			<div class="well bs-component" style="width:80%; margin: 0 auto">				
+				<ul>
+					<li>
+						<a style="color:#6AA84F" href="/career/" class="menu">Home</a>
+					</li>
+					<li>
+						<a  style="color:#6AA84F" href="{% url 'career:studyareas' %}"  class="menu">Study Areas</b></a>						
+					</li>
+					 <li>
+						<a style="color:#6AA84F" href="{% url 'career:institutions' %}" class="menu"><span>Institutions</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:programmes' %}" class="menu"><span>Programmes</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'careerquiz:quiz' %}" class="menu"><span>Quiz</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'careerchat:basechat' %}" class="menu"><span>Chat with Advisor</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:faq' %}" class="menu"><span>FAQ</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:about' %}" class="menu"><span>About</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:contact' %}" class="menu"><span>Contact Us</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:sitemap' %}" class="menu"><span>Sitemap</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:login' %}" class="menu"><span>Log In</span></a>
+					</li>
+					<li>
+						<a style="color:#6AA84F" href="{% url 'career:register' %}" class="menu"><span>Register</span></a>
+					</li>
+				</ul>
+			</div>	
+			
+			<br/>
+			<div style = "text-align:center">
+				<img alt="no image found" src="{% static "students2.jpg" %}"/>			
+			</div>
+			<br/>
+		</div>
+	</section>
+</article>
+{% endblock %}

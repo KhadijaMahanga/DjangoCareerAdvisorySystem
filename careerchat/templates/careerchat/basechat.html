@@ -1,0 +1,41 @@
+{% extends "career/base.html" %}
+{% block content %} 
+<!-- http://code.tutsplus.com/tutorials/how-to-create-a-simple-web-based-chat-application--net-5931 -->
+
+<div align="center">
+    <form id="menu" style="margin:0px; margin-bottom:1px;">
+        
+	<p>   Welcome  , <b>{{ user.username }}</b></p>
+        <p><a id="exit" onclick="exitfunction()">Exit Chat  </a></p>
+        <div style="clear:both"></div>
+    </form>
+     
+</div>
+	
+    <div id="messagelist" style="text-align:left;
+    margin:0 auto;
+    margin-bottom:50px;
+    padding:0px;
+    background:#fff;
+    height:350px;
+    width:600px;
+    overflow:scroll;
+    border:1px solid #ACD8F0; ">
+	<ul id="messagechat"><li> <strong>16:00:36  Admin  </strong> Hi there</li></ul>
+
+	</div>
+<div align="center">
+    <form name="message" method="post">
+	{% csrf_token %}
+        <input name="usermsg" type="text" id="chatmsg" size="70" />
+     <button  class="btn btn-info btn-sm" id="sendbutton" > Send </button>
+    </form>
+
+	<div id="result"></div>
+</div>
+<script type="text/javascript" src=""></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+
+{% endblock%}

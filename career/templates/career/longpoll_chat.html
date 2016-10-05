@@ -1,0 +1,7 @@
+{% extends "career/base.html" %}
+{% load staticfiles %}
+{% block header %}
+{{ block.super }}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "long_poll.js" %}"></script>
+{% endblock %}

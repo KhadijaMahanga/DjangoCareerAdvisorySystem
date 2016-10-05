@@ -1,0 +1,36 @@
+{% extends "career/base.html" %}
+{% block content %}
+<article>
+	<section>
+		{% load static %}
+	
+		<div class="block">
+			<h2>Contact Us</h2>
+			<br/>
+		<table style="width:100%">
+			<tr>
+				<td>
+					<div class="well bs-component" style="width:80%; margin: 0 auto">				
+						<h4>Tel</h4><p>021 456 8854</p>
+						<h4>Fax</h4> <p>021 456 8856</p> 	
+						<h4>Email</h4> <p>questions@csa.co.za</p>
+						<br/>	{% if user.is_authenticated %}										
+						{% block chat %}
+						<p>
+							<button href="/careerchat/" class="btn btn-success" id="chatbutton">Chat with an advisor</button>
+						</p>
+						{%endblock%}	
+						<p>Chat hours are between 10am and 4pm every day of the week.</p>	
+						{% endif %}					
+					</div>	
+				</td>
+				<td>
+					<img alt="no image found" src="{% static "career.jpg" %}"/>			
+				</td>
+			</tr>
+		</table>			
+			<br/>
+		</div>
+	</section>
+</article>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "career/index.html" %}
+{% block chat %}
+
+
+<div align="right">
+	<a id="chat" href= "{% url 'careerchat:basechat' %}">Chat with an Advisor</a>
+</div>
+ 
+{% else %}
+ 
+ 
+{% endif %}
+{% endblock %}
+

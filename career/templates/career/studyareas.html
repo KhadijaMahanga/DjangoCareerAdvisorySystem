@@ -1,0 +1,45 @@
+{% extends "career/base.html" %}
+{% block content %}
+<article>
+	<section>
+		{% load static %}
+		<link rel="stylesheet" href={% static 'jquery-ui.css' %}>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src={% static 'jquery-ui.js' %}></script>
+
+		<script>
+			$(function() {
+				$( "#accordion" ).accordion();
+			});
+		</script>
+		<div class="block">
+			<h2>Study Areas</h2>
+			<p>Select a study area:</p>  
+					
+			{% if studyAreaList %}
+	
+			<div id="accordion">
+				{% for i in studyAreaList %}
+				<h3>{{ i.title }}</h3>
+				<div style="width:100%"> 
+					<table style="width:100%">
+						<tr style="width:100%">
+							<td style="width:100%">
+								<img alt="no image found" src={{i.picture}} height="175"/>
+							</td>							
+						</tr>
+						<tr style="width:100%">
+							<td>
+								<h4><b>About</b></h4> <p>{{i.description}}</p> 
+							</td>
+						</tr>						
+					</table>										
+				</div>
+				{% endfor %}											
+			</div>	
+			{% endif %}	
+		</div>
+	</section>
+	<br />
+</article>
+{% endblock %}

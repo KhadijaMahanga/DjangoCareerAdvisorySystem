@@ -1,0 +1,46 @@
+{% extends "career/base.html" %}
+{% block content %} 
+<article>
+	<section>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#chatbutton').click(function () {});
+	});
+	</script>
+	{% load static %}
+	<div class="block">
+        <div class="jumbotron">
+            <h1>Welcome to the Career Study Advisor.</h1>
+            <p>We're here to help you decide which path to take <br/>
+            on the exciting journey that is your life!</p>
+        </div>
+        <div>
+			<table>
+				<tr>						
+					<td>
+						<img alt="no image found" src="{% static "step.png" %}"/>	
+					</td>
+					<td>
+						<div class="jumbotron">
+							<p>Not sure what to study or which career best suits your interests?</p>
+							<p align="right"><a href="{% url 'careerquiz:quiz' %}" class="btn btn-primary">Take our quiz</a></p>
+						</div>
+					</td>
+				</tr>
+			</table>            
+        </div>
+		</div>
+		{% if user.is_authenticated %}
+		<div align="right">
+			{% block chat %}
+			<p><button href="/careerchat/" class="btn btn-success" id="chatbutton">Chat with an advisor</button></p>
+			{%endblock%}
+		</div>
+		{% endif %}
+	</section>
+	<br />
+</article>
+{% endblock %}
+

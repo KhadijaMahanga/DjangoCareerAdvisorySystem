@@ -1,0 +1,54 @@
+from django import forms
+from django.forms import ModelForm
+from django.contrib.auth.models import User
+from career.models import UserProfile, AdvisorProfile
+from django.forms.extras.widgets import SelectDateWidget
+
+TITLE_CHOICES = (
+    ('MR', 'Mr.'),
+    ('MRS', 'Mrs.'),
+    ('MS', 'Ms.'),
+)
+
+GENDER_CHOICES = (
+  ('Female','Female'),('Male','Male'),
+)
+
+
+
+class UserForm(ModelForm):
+    username= forms.CharField(label='Username: ', max_length=100)
+    email= forms.CharField(label='Email:', widget=forms.EmailInput())
+    first_name= forms.CharField(label='First Name: ', max_length=200)
+    last_name= forms.CharField(label='Last Name: ', max_length=200)
+    password = forms.CharField(label='Password :', widget=forms.PasswordInput(min_length=8))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'last_name', 'password')
+
+
+
+class UserProfileForm(ModelForm):
+
+    title = forms.ChoiceField(label='Title:', choices=TITLE_CHOICES)
+    school = forms.CharField(label='School:', max_length=200)
+    gender = forms.ChoiceField(label='Gender:', widget=forms.RadioSelect, choices=GENDER_CHOICES)
+    dateofbirth=forms.DateField(label='Date of Birth:',widget=SelectDateWidget())
+    grade = forms.CharField(label='Grade:', max_length=200)
+
+    class Meta:
+	model = UserProfile
+	fields = ('title', 'school','gender', 'dateofbirth', 'grade')
+
+
+
+class AdvisorProfileForm(ModelForm):
+
+    title = forms.ChoiceField(label='Title:', choices=TITLE_CHOICES)
+    gender = forms.ChoiceField(label='Gender:', widget=forms.RadioSelect, choices=GENDER_CHOICES)
+    dateofbirth=forms.DateField(label='Date of Birth:',widget=SelectDateWidget())
+
+    class Meta:
+	model = AdvisorProfile
+	fields = ('title', 'gender', 'dateofbirth')

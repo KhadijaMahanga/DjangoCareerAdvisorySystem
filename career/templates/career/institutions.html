@@ -1,0 +1,47 @@
+{% extends "career/base.html" %}
+{% block content %} 
+<article>
+	<section>
+		{% load static %}
+		<link rel="stylesheet" href={% static 'jquery-ui.css' %}>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src={% static 'jquery-ui.js' %}></script>		
+		<script>
+			$(function() {
+				$( "#accordion" ).accordion();
+			});
+		</script>
+		<div class="block">			
+			<h2>Institutions</h2>
+			<p>Select an institution:</p>
+
+			{% if institutionList %}
+				<div id="accordion">
+					{% for i in institutionList %} 
+						<h3>{{ i.name }}</h3>
+						<div>
+							<table style="width:100%">
+								<tr>
+									<td>
+										<h4><b>Description</b></h4> <p>{{i.description}}</p>
+										<h4><b>Address</b></h4> <p>{{i.address}}</p>
+										<h4><b>Email</b></h4> <p>{{i.email}}</p>
+										<h4><b>Tel</b></h4> <p>{{i.tel}}</p>
+										<h4><b>Website</b></h4><a target="_blank" style="color:#6AA84F" href="{{i.weblink}}"><p>{{i.weblink}}</p></a>
+									</td>
+									<td style="text-align:right; padding:10px; vertical-align:top">
+										<div><img alt="no image found" src={{i.picture}} height="175"/></div>
+									</td>
+								</tr>
+							</table>
+							
+																					
+						</div>
+					{% endfor %}							
+				</div>		
+			{% endif %}
+		</div>            
+	</section>         
+</article>
+{% endblock %}
+

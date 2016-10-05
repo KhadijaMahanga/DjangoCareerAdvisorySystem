@@ -1,0 +1,32 @@
+{% extends "career/base.html" %}
+{% block content %}
+
+        <article>
+	<div class="block">
+	 <h2>Edit your profile</h2>
+
+	<br/>
+	<br/>
+	<h4> {{ user.username }}</h4>
+
+        <p>To register, enter your information below and click the sign up button to create your very own account.</p>
+	{% if error %}
+		<p style="color: #ff0000;">Your changes haven't been done, {{error}}</p>
+	{% endif%}
+
+        <form id="user_form" method="post" action="/career/profile/"
+                enctype="multipart/form-data" class="form-horizontal">
+
+            {% csrf_token %}
+         
+            {{ user_form.as_p }}
+       
+ 
+            <input type="submit" name="submit" value="Save Changes" class="btn btn-primary" />
+
+        </form>
+
+        </div>
+        </article>
+
+{% endblock %}

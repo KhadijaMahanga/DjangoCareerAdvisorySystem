@@ -1,0 +1,39 @@
+{% extends "career/base.html" %}
+{% block content %}
+<article>
+	<section>
+		<div class="block">
+			<h2>Quiz - Section A</h2>
+				<p>Please answer as honestly as possible to get an accurate assessment. <br>
+				Choose the option that BEST fits you.</p>
+				<br />
+			<div>
+				<form method="post">
+					{% csrf_token %}
+					{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif%}
+					{% if latest_question_list %}												
+						<ol>
+							{% for questionpartone in latest_question_list %}
+											
+							<li>{{ questionpartone }}</li>
+							{% for choicepartone in questionpartone.choicepartone_set.all %}
+																	   <!-- "{{ questionpartone.questionNumber }}" -->
+								<input type="radio" name="{{questionpartone.questionNumber}}" id="choicepartone{{ forloop.counter }}" value="{{ choicepartone.choiceHarmonType}}" />
+								<label for="choicepartone{{ forloop.counter }}">{{ choicepartone.choice_text }}</label><br />
+							{% endfor %}
+					<br/>	
+												
+						{%endfor%}						
+						</ol>							
+					{% else %}
+						<p>No questions are available.</p>
+					{% endif %}
+					<br/>
+					
+					<input class="btn  btn-info btn-sm"type="submit"  value="Next"  name='next' />							
+				</form>
+			</div>
+		</div>
+	</section>
+</article>
+{% endblock %}

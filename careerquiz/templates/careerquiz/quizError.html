@@ -1,0 +1,30 @@
+{% extends "career/base.html" %}
+{% block content %} 
+    <article>
+	{% load static %}
+
+        <section>
+		
+        <div class="block">
+
+		<table>
+			<tr>
+				<td style="padding:10px">
+									
+				<div> <img alt="no image found" src="{% static "stop.jpg" %}" alt="OOPs" height="200"/></div>	
+				</td>
+							
+				<td style="padding:10px; text-align:center" >
+									
+					<h3> Please answer all questions before proceeding</h3>
+					<br/>
+					<input class="btn  btn-danger btn-sm" type=button value="Go back" onClick="javascript:history.go(-1);"></input>
+				</td>
+								
+			</tr>
+		</table>  
+	</div>        
+		</section>         
+	</article>
+{% endblock %}
+
